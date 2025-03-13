@@ -16,15 +16,18 @@ data = csv_to_list(file_path)
 print(data)  # Output the list """
 
 def alltemp():
-    celcius = {}
-    for temp in temperatures[1:]:
-        temperatures = ["Label", 32, 50, 77, 104]
-        "Label" == temp[0]
-        celcius = map(int, temp[1:])
-        celcius["Label"] = ((temperatures + 32) * 4 ) % 9
-    print(celcius)
+    for temp in temperatures[1:]: #doesn't work
+        temperatures = ["labels", 32, 50, 77, 104]
+        celcius = map(lambda x: ((x - 32) * 5 / 9), temperatures)
+        print(list(celcius))
+alltemp()
     
+#[[1,2,3],
+ #[Bay, 7, 7, 6],
+ #[8th,7,7,5],]
+#x[2]y [2]y
 
+#Lambda function is an anonymous function, it has no name. We use it inside map to condense the map function. You can just say lambda, create this instead of giving something a name and then doing the same thing. We don't have to write return too so it simplifies.
         
 
 
