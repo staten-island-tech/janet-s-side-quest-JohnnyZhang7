@@ -48,14 +48,8 @@ alltemp() """
 
 
 
-courses = {
-    "Python Programming": {"fee": 150, "seats": 0, "category": "Technology"},
-    "Machine Learning": {"fee": 200, "seats": 3, "category": "Technology"},
-    "Business Strategy": {"fee": 100, "seats": 5, "category": "Business"},
-    "Marketing 101": {"fee": 120, "seats": 2, "category": "Business"},
-    "Cybersecurity": {"fee": 180, "seats": 4, "category": "Technology"}
-}
-fee = 0
+
+""" fee = 0
 print("hi")
 while True:
     Python_Programming = courses["Python Programming"]
@@ -64,6 +58,7 @@ while True:
     Marketing_101 = courses["Marketing 101"]
     Cybersecurity = courses["Cybersecurity"]
     student_enrollment = print(str(input(f"What course would you like to enroll in?")))
+    classes = []
 
     if student_enrollment == "Python Programming":
         if Python_Programming["seats"] == 0:
@@ -95,18 +90,34 @@ while True:
         else:
             fee += Cybersecurity["fee"]
 
-    checkout = print(f"You are in {student_enrollment}, would you like to exit?(yes or no)")
+    checkout = print(input(f"You are in {student_enrollment}, would you like to exit?(yes or no)"))
     if checkout == "yes":
         print("Your total payment without discount is ${fee}")
         if student_enrollment >= 3:
             fee * 0.95
         if student_enrollment == "Python Programming" or "Machine Learning" or "Cybersecurity":
             fee -= 20
-        print(input("Your total payment with discount is ${fee}"))
+        print("Your total payment with discount is ${fee}")
         break
     elif checkout == "no":
-        continue
+        continue """
 #for i in course in courses.item():
     #if course[seats] > 0
         #print i
         #break
+
+courses = {
+    "Python Programming": {"fee": 150, "seats": 0, "category": "Technology"},
+    "Machine Learning": {"fee": 200, "seats": 3, "category": "Technology"},
+    "Business Strategy": {"fee": 100, "seats": 5, "category": "Business"},
+    "Marketing 101": {"fee": 120, "seats": 2, "category": "Business"},
+    "Cybersecurity": {"fee": 180, "seats": 4, "category": "Technology"}
+}
+fee = 0
+student_enrollment = ["Python programming", "Business Strategy", "Marketing 101"]
+print(student_enrollment["Python Programming"])
+for i in student_enrollment in courses.item():
+    if student_enrollment["Python Programming"]
+        print i
+        
+
