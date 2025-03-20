@@ -113,11 +113,21 @@ courses = {
     "Marketing 101": {"fee": 120, "seats": 2, "category": "Business"},
     "Cybersecurity": {"fee": 180, "seats": 4, "category": "Technology"}
 }
+Technology_courses = ["Python Programming", "Machine Learning", "cybersecurity"]
 fee = 0
-student_enrollment = ["Python programming", "Business Strategy", "Marketing 101"]
-print(student_enrollment["Python Programming"])
-for i in student_enrollment in courses.item():
-    if student_enrollment["Python Programming"]
-        print i
-        
+student_enrollment = ["Python Programming", "Business Strategy", "Marketing 101"]
 
+for course_data in courses.items():
+    if course_data[0] in student_enrollment:    #in to compare two things non number. == doesn't work.
+        if course_data[1]['seats'] > 0:
+            fee += course_data[1]['fee']
+            print(f"Your total is now ${fee}, {course_data[0]} is ${course_data[1]['fee']}  ")
+
+        if course_data[1]['seats'] == 0:
+            Technology_courses.remove(course_data[0])   #I searched up the "remove" command
+            print(f"{course_data[0]} is full, would you be interested in {Technology_courses}")
+
+    
+
+
+        
