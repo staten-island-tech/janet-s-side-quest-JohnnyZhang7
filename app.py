@@ -113,10 +113,10 @@ courses = {
     "Marketing 101": {"fee": 120, "seats": 2, "category": "Business"},
     "Cybersecurity": {"fee": 180, "seats": 4, "category": "Technology"}
 }
-Technology_courses = ["Python Programming", "Machine Learning", "cybersecurity"]
+Technology_courses = ["Python Programming", "Machine Learning", "Cybersecurity"]
 Business_courses = ["Business Strategy", "Marketing 101"]
 fee = 0
-student_enrollment = ["Python Programming", "Business Strategy", "Marketing 101"]
+student_enrollment = ["Machine Learning", "Business Strategy", "Marketing 101"]
 
 for course_data in courses.items():
     if course_data[0] in student_enrollment:    #in to compare two things non number. == doesn't work.
@@ -124,7 +124,7 @@ for course_data in courses.items():
             fee += course_data[1]['fee']
             print(f"Your total is now ${fee}, {course_data[0]} is ${course_data[1]['fee']}")
 
-        elif course_data[1]['seats'] == 0:
+        if course_data[1]['seats'] == 0:
             Technology_courses.remove(course_data[0])   #I searched up the "remove" command
             print(f"{course_data[0]} is full, would you be interested in {Technology_courses}")
             student_enrollment.remove(course_data[0])
@@ -135,23 +135,28 @@ for course_data in courses.items():
 
 
 checkout = str(input((f"You are in {student_enrollment}, would you like to exit?(yes or no)")))
-if checkout == "yes" or "Yes":
-    while True:
-        print(F"Your total payment without discount is ${fee}")
-        if len.student_enrollment >= 3:
-            fee * 0.95
-        if student_enrollment == 
-            fee -= 20
-        print(f"Your total payment with discount is ${fee}")
-        break
+while True:
+    if checkout == "yes" or checkout == "Yes":
+            print(F"Your total payment without discount is ${fee}")
+            if len(student_enrollment) >= 3:
+                fee *= 0.95
+            for tech in Technology_courses:
+                if tech == student_enrollment[0] or tech == student_enrollment[1] or tech == student_enrollment[2]:
+                    fee -= 20
+            print(f"Your total payment with discount is ${fee}")
+            break
 
-""" if checkout == "no": """
+    if checkout == "no" or checkout == "No":
+        add = input("What would you like to add?")
+        if course_data[1]['seats'] > 0:
+            if add == course_data[0]:
+                student_enrollment.append(course_data[0])
+                fee += course_data[1]['fee']
+                print(f"Your total is now ${fee}, {course_data[0]} is ${course_data[1]['fee']}")
+                checkout = str(input((f"You are in {student_enrollment}, would you like to exit?(yes or no)")))
+    """     if course_data[1]['seats'] == 0: """
 
-base = len([student_enrollment])
-print(base)
 
         
     
 
-
-        
