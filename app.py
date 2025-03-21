@@ -113,25 +113,25 @@ courses = {
     "Marketing 101": {"fee": 120, "seats": 2, "category": "Business"},
     "Cybersecurity": {"fee": 180, "seats": 4, "category": "Technology"}
 }
-Technology_courses = ["Python Programming", "Machine Learning", "Cybersecurity"]
-Business_courses = ["Business Strategy", "Marketing 101"]
 fee = 0
-student_enrollment = ["Machine Learning", "Business Strategy", "Marketing 101"]
-
 for course_data in courses.items():
+    Technology_courses = ["Python Programming", "Machine Learning", "Cybersecurity"]
+    Business_courses = ["Business Strategy", "Marketing 101"]
+    student_enrollment = ["Machine Learning", "Business Strategy", "Marketing 101"]
     if course_data[0] in student_enrollment:    #in to compare two things non number. == doesn't work.
         if course_data[1]['seats'] > 0:
             fee += course_data[1]['fee']
             print(f"Your total is now ${fee}, {course_data[0]} is ${course_data[1]['fee']}")
 
+
         if course_data[1]['seats'] == 0:
+            student_enrollment.remove(course_data[0])
             Technology_courses.remove(course_data[0])   #I searched up the "remove" command
             print(f"{course_data[0]} is full, would you be interested in {Technology_courses}")
-            student_enrollment.remove(course_data[0])
         elif course_data[1]['seats'] == 0:
             Business_courses.remove(course_data[0])
-            print(f"{course_data[0]} is full, would you be interested in {Technology_courses}")
             student_enrollment.remove(course_data[0])
+            print(f"{course_data[0]} is full, would you be interested in {Business_courses}")
 
 
 checkout = str(input((f"You are in {student_enrollment}, would you like to exit?(yes or no)")))
@@ -140,13 +140,12 @@ while True:
             print(F"Your total payment without discount is ${fee}")
             if len(student_enrollment) >= 3:
                 fee *= 0.95
-            for tech in Technology_courses:
-                if tech == student_enrollment[0] or tech == student_enrollment[1] or tech == student_enrollment[2]:
-                    fee -= 20
+            if course_data[0] in Technology_courses:
+                fee -= 20
             print(f"Your total payment with discount is ${fee}")
             break
 
-    if checkout == "no" or checkout == "No":
+"""     if checkout == "no" or checkout == "No":
         add = input("What would you like to add?")
         if course_data[1]['seats'] > 0:
             if add == course_data[0]:
@@ -154,9 +153,21 @@ while True:
                 fee += course_data[1]['fee']
                 print(f"Your total is now ${fee}, {course_data[0]} is ${course_data[1]['fee']}")
                 checkout = str(input((f"You are in {student_enrollment}, would you like to exit?(yes or no)")))
-    """     if course_data[1]['seats'] == 0: """
+        elif course_data[1]['seats'] == 0:
+            print("Not enough seats")
+            checkout = str(input((f"You are in {student_enrollment}, would you like to exit?(yes or no)"))) """
 
-
+""" class Merchant:
+     def_init_(self, name, products)
+        self.name = name
+        self.products = products
+     def sell(self, item):
+         self.products.remove(item)
+         print(self.products)
+Rachel = Merchant("Rachel", ["Apples", "Oranges", "Human"])
+Kammy = Merchant("Kammy", ["Penguins", "Whales", "Capybaras"])
+print(Rachel.sell("Human"))
+print(Kammy.sell("Capybaras")) """
         
     
 
